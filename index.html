@@ -194,12 +194,33 @@
         /* --- CSS Reset & Variables --- */
         :root {
             --bg: #0a0a0a;
+            --bg-rgb: 10, 10, 10;
             --text: #fafafa;
             --accent: #00e5a0;
+            --accent-rgb: 0, 229, 160;
+            --accent-hover: #00ffb3;
             --muted: #666;
             --card-bg: #111;
             --border: #222;
+            --error: #ef4444;
+            --shadow-video: rgba(0, 0, 0, 0.6);
+            --grain-opacity: 0.5;
             --transition-smooth: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        [data-theme="light"] {
+            --bg: #f5f4f0;
+            --bg-rgb: 245, 244, 240;
+            --text: #0f0f0f;
+            --accent: #00c489;
+            --accent-rgb: 0, 196, 137;
+            --accent-hover: #00e5a0;
+            --muted: #6b7280;
+            --card-bg: #ffffff;
+            --border: #e5e7eb;
+            --error: #dc2626;
+            --shadow-video: rgba(0, 0, 0, 0.15);
+            --grain-opacity: 0.15;
         }
 
         *, *::before, *::after {
@@ -238,6 +259,10 @@
         }
 
         /* --- Body --- */
+        body, body * {
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.3s ease, box-shadow 0.4s ease;
+        }
+
         body {
             font-family: 'Outfit', sans-serif;
             background: var(--bg);
@@ -256,7 +281,7 @@
             background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
             pointer-events: none;
             z-index: 10000;
-            opacity: 0.5;
+            opacity: var(--grain-opacity);
         }
 
         /* --- Custom Cursor --- */
@@ -410,8 +435,8 @@
         .btn-primary:hover {
             transform: translateY(-2px) scale(1.03);
             color: var(--bg);
-            background: #00ffb3;
-            box-shadow: 0 8px 30px rgba(0, 229, 160, 0.25);
+            background: var(--accent-hover);
+            box-shadow: 0 8px 30px rgba(var(--accent-rgb), 0.25);
         }
 
         .btn-secondary {
@@ -434,12 +459,14 @@
             right: 0;
             z-index: 1000;
             padding: 2rem 0;
-            mix-blend-mode: difference;
-            transition: padding 0.4s;
+            transition: padding 0.4s, background 0.4s;
         }
 
         .navbar.scrolled {
             padding: 1.2rem 0;
+            background: rgba(var(--bg-rgb), 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
         }
 
         .navbar .container {
@@ -498,6 +525,34 @@
             background: var(--text);
             color: var(--bg);
         }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            background: none;
+            border: 1px solid var(--border);
+            border-radius: 50%;
+            width: 36px;
+            height: 36px;
+            cursor: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            transition: color 0.3s, border-color 0.3s, transform 0.3s;
+            line-height: 0;
+            padding: 0;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            transform: rotate(20deg);
+        }
+
+        .theme-toggle .icon-sun { display: none; }
+        .theme-toggle .icon-moon { display: block; }
+        [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+        [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
         /* Hamburger always visible */
         .nav-toggle {
@@ -681,7 +736,7 @@
             overflow: hidden;
             border-radius: 16px;
             border: 2px solid var(--accent);
-            box-shadow: 0 0 60px rgba(0, 229, 160, 0.2), 0 25px 80px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 60px rgba(var(--accent-rgb), 0.2), 0 25px 80px var(--shadow-video);
             aspect-ratio: 9 / 16;
             max-height: 85vh;
             margin: 0 auto;
@@ -708,7 +763,7 @@
             position: absolute;
             inset: 0;
             border-radius: 12px;
-            border: 1px solid rgba(0, 229, 160, 0.1);
+            border: 1px solid rgba(var(--accent-rgb), 0.1);
             pointer-events: none;
             z-index: 2;
         }
@@ -728,7 +783,7 @@
             transform: translate(-50%, -50%);
             width: 80px;
             height: 80px;
-            background: rgba(0, 229, 160, 0.12);
+            background: rgba(var(--accent-rgb), 0.12);
             backdrop-filter: blur(20px);
             border: 2px solid var(--accent);
             border-radius: 50%;
@@ -743,7 +798,7 @@
         .video-play-btn:hover {
             background: var(--accent);
             transform: translate(-50%, -50%) scale(1.15);
-            box-shadow: 0 0 50px rgba(0, 229, 160, 0.4);
+            box-shadow: 0 0 50px rgba(var(--accent-rgb), 0.4);
         }
 
         .video-play-btn svg {
@@ -998,7 +1053,7 @@
         .service-icon {
             width: 48px;
             height: 48px;
-            background: rgba(0, 229, 160, 0.1);
+            background: rgba(var(--accent-rgb), 0.1);
             border: none;
             border-radius: 12px;
             display: flex;
@@ -1142,7 +1197,7 @@
 
         .timeline-item:last-child::before {
             background: var(--text);
-            box-shadow: 0 0 0 4px rgba(0, 229, 160, 0.2);
+            box-shadow: 0 0 0 4px rgba(var(--accent-rgb), 0.2);
         }
 
         .timeline-year {
@@ -1418,7 +1473,8 @@
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: #333;
+            color: var(--muted);
+            opacity: 0.6;
         }
 
         .contact-form .btn {
@@ -1668,6 +1724,9 @@
             }
         }
     </style>
+    <script>
+        (function(){var s=localStorage.getItem('nordvind-theme');var d=window.matchMedia('(prefers-color-scheme:dark)').matches;var t=s||(d?'dark':'light');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+    </script>
 </head>
 <body>
     <!-- Custom Cursor -->
@@ -1699,6 +1758,10 @@
             </a>
             <div class="nav-right">
                 <a href="#kontakt" class="nav-cta-btn">Sprechen wir &rarr;</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Theme wechseln">
+                    <svg class="icon-sun" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                    <svg class="icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+                </button>
                 <button class="nav-toggle" id="navToggle" aria-label="Men&uuml; &ouml;ffnen">
                     <span></span>
                     <span></span>
@@ -2280,6 +2343,35 @@
             });
         });
 
+        // ========== Theme Toggle ==========
+        (function() {
+            var toggle = document.getElementById('themeToggle');
+            if (!toggle) return;
+
+            function getTheme() {
+                return document.documentElement.getAttribute('data-theme') || 'dark';
+            }
+
+            function setTheme(theme) {
+                if (theme === 'light') {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                } else {
+                    document.documentElement.removeAttribute('data-theme');
+                }
+                localStorage.setItem('nordvind-theme', theme);
+            }
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
+                if (!localStorage.getItem('nordvind-theme')) {
+                    setTheme(e.matches ? 'dark' : 'light');
+                }
+            });
+
+            toggle.addEventListener('click', function() {
+                setTheme(getTheme() === 'light' ? 'dark' : 'light');
+            });
+        })();
+
         // ========== Full-Screen Nav Overlay ==========
         var navToggle = document.getElementById('navToggle');
         var navOverlay = document.getElementById('navOverlay');
@@ -2451,13 +2543,13 @@
                     form.reset();
                 } else {
                     status.style.display = 'block';
-                    status.style.color = '#ef4444';
+                    status.style.color = 'var(--error)';
                     status.textContent = result.error || 'Ein Fehler ist aufgetreten.';
                 }
             })
             .catch(function() {
                 status.style.display = 'block';
-                status.style.color = '#ef4444';
+                status.style.color = 'var(--error)';
                 status.textContent = 'Verbindungsfehler. Bitte versuchen Sie es sp\u00e4ter erneut.';
             })
             .finally(function() {
