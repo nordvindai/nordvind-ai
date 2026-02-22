@@ -2,7 +2,7 @@
 
 ## Unternehmen
 
-Nordvind AI ist eine KI-Beratung fuer Unternehmen in Deutschland. Ein Angebot von ATE-Commerce.
+Nordvind AI ist eine KI-Beratung fuer Unternehmen in Deutschland.
 
 - Gruender: Alex Trupp
 - Rechtsform: Einzelunternehmen
@@ -10,7 +10,7 @@ Nordvind AI ist eine KI-Beratung fuer Unternehmen in Deutschland. Ein Angebot vo
 - Standort: Hannover, Niedersachsen, Deutschland
 - Adresse: Vahrenwalder Str. 213, 30165 Hannover
 - Telefon: +49 176 43198566
-- E-Mail: a.trupp@ate-commerce.de
+- E-Mail: info@nordvind-ai.de
 - Website: https://nordvind-ai.de
 - LinkedIn: https://linkedin.com/in/alextrupp-752a4014a
 - Zielgruppe: B2B - Unternehmen jeder Groesse (Startups bis Mittelstand)
