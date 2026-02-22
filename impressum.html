@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum | Nordvind AI</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --nordic-dark: #0a1628;
+            --nordic-blue: #1e3a5f;
+            --aurora-cyan: #00d4ff;
+            --aurora-green: #00ff88;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+        }
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Outfit', sans-serif; background: var(--nordic-dark); color: var(--text-primary); line-height: 1.7; }
+        a { color: var(--aurora-cyan); text-decoration: none; transition: color 0.3s; }
+        a:hover { color: var(--aurora-green); }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 2rem; }
+
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 0; background: rgba(10, 22, 40, 0.95); backdrop-filter: blur(10px); border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .navbar .container { max-width: 1200px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.3rem; color: var(--text-primary); }
+        .nav-logo:hover { color: var(--text-primary); }
+        .nav-logo svg { width: 32px; height: 32px; }
+        .back-link { font-size: 0.9rem; }
+
+        .legal-content { padding: 8rem 0 4rem; }
+        .legal-content h1 { font-size: 2rem; margin-bottom: 2rem; }
+        .legal-content h2 { font-size: 1.3rem; margin-top: 2.5rem; margin-bottom: 0.8rem; color: var(--aurora-cyan); }
+        .legal-content h3 { font-size: 1.1rem; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+        .legal-content p { color: var(--text-secondary); margin-bottom: 1rem; }
+        .legal-content ul { color: var(--text-secondary); padding-left: 1.5rem; margin-bottom: 1rem; }
+        .legal-content li { margin-bottom: 0.3rem; }
+
+        .footer { background: rgba(10, 22, 40, 0.8); border-top: 1px solid rgba(255,255,255,0.05); padding: 2rem 0; text-align: center; }
+        .footer p { color: var(--text-secondary); font-size: 0.8rem; }
+
+        @media (max-width: 480px) {
+            .container { padding: 0 1rem; }
+            .legal-content h1 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="nav-logo">
+                <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="14" stroke="var(--aurora-cyan)" stroke-width="2"/><path d="M10 20L16 8L22 20" stroke="var(--aurora-cyan)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="16" cy="14" r="3" fill="var(--aurora-cyan)" opacity="0.5"/></svg>
+                Nordvind AI
+            </a>
+            <a href="index.html" class="back-link">&larr; Zur&uuml;ck zur Startseite</a>
+        </div>
+    </nav>
+
+    <main class="legal-content">
+        <div class="container">
+            <h1>Impressum</h1>
+
+            <h2>Angaben gem&auml;&szlig; &sect; 5 TMG</h2>
+            <p>
+                Nordvind AI<br>
+                Ein Angebot von ATE-Commerce<br>
+                Inhaber: Alex Trupp<br>
+                Vahrenwalder Str. 213<br>
+                30165 Hannover
+            </p>
+
+            <h2>Kontakt</h2>
+            <p>
+                Telefon: <a href="tel:+4917643198566">+49 176 43198566</a><br>
+                E-Mail: <a href="mailto:a.trupp@ate-commerce.de">a.trupp@ate-commerce.de</a>
+            </p>
+
+            <h2>Umsatzsteuer-ID</h2>
+            <p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27a Umsatzsteuergesetz:<br>DE304525706</p>
+
+            <h2>Rechtsform</h2>
+            <p>
+                Einzelunternehmen<br>
+                Finanzamt: Hannover-S&uuml;d<br>
+                Gerichtsstand: Amtsgericht Hannover
+            </p>
+
+            <h2>Verantwortlich f&uuml;r den Inhalt nach &sect; 18 Abs. 2 MStV</h2>
+            <p>
+                Alex Trupp<br>
+                Vahrenwalder Str. 213<br>
+                30165 Hannover
+            </p>
+
+            <h2>EU-Streitschlichtung</h2>
+            <p>Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a></p>
+            <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+
+            <h2>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h2>
+            <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h2>Haftung f&uuml;r Inhalte</h2>
+            <p>Als Diensteanbieter sind wir gem&auml;&szlig; &sect; 7 Abs. 1 TMG f&uuml;r eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach &sect;&sect; 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, &uuml;bermittelte oder gespeicherte fremde Informationen zu &uuml;berwachen oder nach Umst&auml;nden zu forschen, die auf eine rechtswidrige T&auml;tigkeit hinweisen.</p>
+            <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unber&uuml;hrt. Eine diesbez&uuml;gliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung m&ouml;glich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+
+            <h2>Haftung f&uuml;r Links</h2>
+            <p>Unser Angebot enth&auml;lt Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb k&ouml;nnen wir f&uuml;r diese fremden Inhalte auch keine Gew&auml;hr &uuml;bernehmen. F&uuml;r die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf m&ouml;gliche Rechtsverst&ouml;&szlig;e &uuml;berpr&uuml;ft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar.</p>
+            <p>Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Links umgehend entfernen.</p>
+
+            <h2>Urheberrecht</h2>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielf&auml;ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au&szlig;erhalb der Grenzen des Urheberrechtes bed&uuml;rfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur f&uuml;r den privaten, nicht kommerziellen Gebrauch gestattet.</p>
+            <p>Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitten wir um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Nordvind AI / ATE-Commerce. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>

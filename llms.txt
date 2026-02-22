@@ -1,0 +1,38 @@
+# Nordvind AI - KI-Beratung fuer Unternehmen
+
+> Nordvind AI ist eine KI-Beratung fuer Unternehmen mit Sitz in Hannover, Deutschland. Gegruendet von Alex Trupp, einem Wirtschaftsinformatiker mit ueber 12 Jahren Erfahrung in E-Commerce, Business-Analyse und Softwareentwicklung.
+
+## Warum KI jetzt?
+
+5 Paradigmenwechsel veraendern jede Branche:
+1. Ende der Stundensaetze - Ergebnisbasierte Abrechnung statt Zeitaufwand
+2. Prozesse im Wochentakt - KI-gestuetzte Optimierung in Wochen statt Monaten
+3. Von Excel zu Custom Software - Massgeschneiderte KI-Loesungen statt manueller Prozesse
+4. Jede Agentur wird KI-Agentur - KI als Kern jeder Dienstleistung
+5. Marketing als Burggraben - KI-Content als Wettbewerbsvorteil
+
+## Leistungen
+
+- Prozessanalyse: Identifikation von Automatisierungspotenzialen
+- Tool-Empfehlung & Implementierung: Passende KI-Tools finden und umsetzen
+- Individuelle KI-Loesungen: Massgeschneiderte Anwendungen
+- Software-Entwicklung mit KI: Moderne Entwicklung mit KI-Unterstuetzung
+- Marketing mit KI: Content Marketing, SEO, automatisierte Kampagnen
+- E-Commerce & Visual Content: Produktbilder, Videos mit KI
+- Laufende Betreuung & Support: Langfristige Partnerschaft
+
+## Tools
+
+ChatGPT, Claude, Gemini, Mistral, Microsoft Copilot, GitHub Copilot, Cursor, Midjourney, DALL-E 3, Stable Diffusion, Runway, Sora, HeyGen, ElevenLabs, Make, n8n, LangChain, v0.dev
+
+## Kontakt
+
+- Website: https://nordvind-ai.de
+- E-Mail: a.trupp@ate-commerce.de
+- Telefon: +49 176 43198566
+- Adresse: Vahrenwalder Str. 213, 30165 Hannover, Deutschland
+- LinkedIn: https://linkedin.com/in/alextrupp-752a4014a
+
+## Preismodell
+
+Projektbasierte Abrechnung. Kostenlose Erstberatung. Transparent und fair.

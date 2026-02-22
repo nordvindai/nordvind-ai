@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Disallow:
+
+Sitemap: https://nordvind-ai.de/sitemap.xml
+
+# AI Crawlers - Allowed
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /

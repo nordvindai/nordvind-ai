@@ -1,0 +1,140 @@
+# Nordvind AI - Vollstaendige Unternehmensinformation
+
+## Unternehmen
+
+Nordvind AI ist eine KI-Beratung fuer Unternehmen in Deutschland. Ein Angebot von ATE-Commerce.
+
+- Gruender: Alex Trupp
+- Rechtsform: Einzelunternehmen
+- USt-IdNr: DE304525706
+- Standort: Hannover, Niedersachsen, Deutschland
+- Adresse: Vahrenwalder Str. 213, 30165 Hannover
+- Telefon: +49 176 43198566
+- E-Mail: a.trupp@ate-commerce.de
+- Website: https://nordvind-ai.de
+- LinkedIn: https://linkedin.com/in/alextrupp-752a4014a
+- Zielgruppe: B2B - Unternehmen jeder Groesse (Startups bis Mittelstand)
+- Branchenfokus: E-Commerce, Produktion & Logistik, Dienstleistungen, Healthcare, Finanzwesen, Startups
+
+## Gruenderprofil - Alex Trupp
+
+Alex Trupp ist Wirtschaftsinformatiker, Senior Business-Analyst und E-Commerce-Experte mit ueber 12 Jahren Erfahrung. Er hat drei Unternehmen gegruendet und ueber 100 Projekte erfolgreich umgesetzt.
+
+### Werdegang
+- 2013: Technische Projektleitung in der Automobilbranche
+- 2015: Gruendung eines E-Commerce-Unternehmens
+- 2019: Senior Business-Analyst & weitere E-Commerce-Projekte
+- Heute: Nordvind AI - KI-Beratung fuer Unternehmen
+
+### Kernkompetenzen
+- E-Commerce & Handel
+- Business-Analyse
+- Software-Entwicklung
+- KI-Integration
+
+## Warum KI jetzt? - 5 Paradigmenwechsel
+
+### 1. Ende der Stundensaetze
+Alte Welt: Zeit x Stundensatz = Preis
+Neue Welt: Ergebnis = Preis - unabhaengig von der Zeit
+
+### 2. Prozesse im Wochentakt
+Alte Welt: Monate fuer Prozessoptimierung
+Neue Welt: KI-gestuetzte Optimierung in Wochen
+
+### 3. Von Excel zu Custom Software
+Alte Welt: Excel-Tabellen & manuelle Prozesse
+Neue Welt: Massgeschneiderte KI-Software
+
+### 4. Jede Agentur wird KI-Agentur
+Alte Welt: Spezialisierte Einzeldisziplinen
+Neue Welt: KI als Kern jeder Dienstleistung
+
+### 5. Marketing als Burggraben
+Alte Welt: Budget = Reichweite
+Neue Welt: KI-Content als Wettbewerbsvorteil
+
+## Leistungen im Detail
+
+### 1. Prozessanalyse
+Identifikation von Automatisierungspotenzialen in bestehenden Geschaeftsprozessen. Analyse, wo KI den groessten Hebel hat.
+
+### 2. Tool-Empfehlung & Implementierung
+Auswahl der passenden KI-Tools fuer spezifische Anforderungen und professionelle Implementierung im Unternehmen.
+
+### 3. Individuelle KI-Loesungen
+Massgeschneiderte KI-Anwendungen, die exakt auf die Geschaeftsprozesse des Kunden zugeschnitten sind.
+
+### 4. Software-Entwicklung mit KI
+Moderne Softwareentwicklung mit KI-Unterstuetzung - schneller, effizienter und qualitativ hochwertiger.
+
+### 5. Marketing mit KI
+KI-gestuetztes Content Marketing, SEO-Optimierung und automatisierte Kampagnen fuer messbar mehr Reichweite.
+
+### 6. E-Commerce & Visual Content
+Produktbilder, Videos und visueller Content mit KI - professionell und skalierbar.
+
+### 7. Laufende Betreuung & Support
+Langfristige Partnerschaft: Betreuung der KI-Loesungen, Teamschulung und kontinuierliche Optimierung.
+
+## Tech-Stack / Tools
+
+- LLMs: ChatGPT, Claude, Gemini, Mistral
+- Coding: GitHub Copilot, Cursor, Microsoft Copilot
+- Bildgenerierung: Midjourney, DALL-E 3, Stable Diffusion
+- Video: Runway, Sora, HeyGen
+- Audio: ElevenLabs
+- Automatisierung: Make, n8n, LangChain
+- Frontend: v0.dev
+
+## Branchenerfahrung
+
+### E-Commerce
+Produktbeschreibungen, Bildgenerierung, Preisoptimierung und personalisierte Kundenansprache mit KI.
+
+### Produktion & Logistik
+Vorausschauende Wartung, Lieferkettenoptimierung und automatisierte Qualitaetskontrolle.
+
+### Dienstleistungen
+Automatisierung von Angeboten, Kundenservice-Bots und intelligente Terminplanung.
+
+### Healthcare
+Dokumentationsautomatisierung, Patientenkommunikation und Datenanalyse im Gesundheitswesen.
+
+### Finanzwesen
+Risikoanalyse, Betrugserkennung und automatisierte Berichterstellung mit KI.
+
+### Startups
+MVP-Entwicklung mit KI, Growth Hacking und skalierbare Automatisierung von Anfang an.
+
+## Preismodell
+
+- Projektbasierte Abrechnung (keine Stundensaetze)
+- Kostenlose Erstberatung
+- Keine versteckten Kosten
+- Erfolgsbasiert
+- Transparente Preisgestaltung
+- Individuelles Angebot basierend auf Bedarf und Scope
+
+## FAQ
+
+### Fuer welche Unternehmensgroesse ist KI-Beratung sinnvoll?
+KI-Beratung lohnt sich fuer Unternehmen jeder Groesse - vom Startup bis zum Mittelstand. Entscheidend ist nicht die Groesse, sondern die Bereitschaft, Prozesse zu hinterfragen und neue Wege zu gehen. Bereits kleine Teams koennen mit den richtigen KI-Tools enorme Produktivitaetssteigerungen erzielen.
+
+### Wie schnell sehe ich Ergebnisse?
+Erste Quick Wins sind oft schon nach 2-4 Wochen sichtbar. Eine vollstaendige KI-Integration dauert je nach Komplexitaet 2-6 Monate. Wir starten immer mit den Massnahmen, die den groessten sofortigen Impact haben.
+
+### Brauche ich technisches Vorwissen?
+Nein. Wir erklaeren alles verstaendlich und begleiten Sie Schritt fuer Schritt. Unser Ziel ist es, dass Ihr Team die Tools eigenstaendig nutzen kann.
+
+### Was unterscheidet Nordvind AI von anderen Beratern?
+Wir kommen aus der Praxis, nicht aus der Theorie. Mit 12+ Jahren Erfahrung in E-Commerce, Business-Analyse und Softwareentwicklung verstehen wir sowohl die technische als auch die geschaeftliche Seite. Wir setzen um - nicht nur beraten.
+
+### Was kostet eine KI-Beratung?
+Wir arbeiten projektbasiert mit transparenter Preisgestaltung. Die Erstberatung ist kostenlos. Danach erhalten Sie ein individuelles Angebot basierend auf Ihrem Bedarf und Scope.
+
+## Differenzierungsmerkmale
+
+1. Praxiserfahrung: Keine Theorie, sondern bewaehrte Loesungen aus echten Projekten
+2. ROI-orientiert: Jede Massnahme wird am messbaren Geschaeftserfolg ausgerichtet
+3. Partnerschaftlich: Arbeit auf Augenhoehe, Befaehigung des Teams
