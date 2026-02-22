@@ -3,6 +3,6 @@ main = "index.js"
 compatibility_date = "2024-01-01"
 
 [vars]
-TO_EMAIL = "info@nordvind-ai.de"
+TO_EMAIL = "alexey.trupp@gmail.com"
 FROM_EMAIL = "kontakt@nordvind-ai.de"
 ALLOWED_ORIGIN = "https://nordvind-ai.de"
