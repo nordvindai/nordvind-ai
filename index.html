@@ -1850,7 +1850,7 @@
                 <p class="section-subtitle">Kostenlose Erstberatung &ndash; unverbindlich und pers&ouml;nlich.</p>
             </div>
 
-            <form class="contact-form" action="#" method="POST">
+            <form class="contact-form" id="contactForm">
                 <div class="form-group">
                     <label for="name">Name *</label>
                     <input type="text" id="name" name="name" required placeholder="Ihr vollst&auml;ndiger Name">
@@ -1881,7 +1881,12 @@
                     <label for="message">Nachricht</label>
                     <textarea id="message" name="message" placeholder="Erz&auml;hlen Sie uns von Ihrem Projekt..."></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Nachricht senden &rarr;</button>
+                <!-- Honeypot -->
+                <div style="position:absolute;left:-9999px" aria-hidden="true">
+                    <input type="text" name="website" tabindex="-1" autocomplete="off">
+                </div>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Nachricht senden &rarr;</button>
+                <div id="formStatus" style="margin-top: 1rem; text-align: center; display: none;"></div>
             </form>
         </div>
     </section>
@@ -1992,6 +1997,56 @@
         // Mobile Menu Toggle
         document.querySelector('.nav-toggle').addEventListener('click', function() {
             document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Contact Form
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var btn = document.getElementById('submitBtn');
+            var status = document.getElementById('formStatus');
+            var form = this;
+
+            btn.disabled = true;
+            btn.textContent = 'Wird gesendet...';
+            status.style.display = 'none';
+
+            var data = {
+                name: form.querySelector('#name').value.trim(),
+                email: form.querySelector('#email').value.trim(),
+                company: form.querySelector('#company').value.trim(),
+                interest: form.querySelector('#interest').value,
+                message: form.querySelector('#message').value.trim(),
+                website: form.querySelector('[name="website"]').value
+            };
+
+            fetch('https://nordvind-contact.alexey-trupp.workers.dev', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(function(res) { return res.json(); })
+            .then(function(result) {
+                if (result.success) {
+                    status.style.display = 'block';
+                    status.style.color = 'var(--aurora-green)';
+                    status.textContent = 'Vielen Dank! Ihre Nachricht wurde gesendet. Wir melden uns in K\u00fcrze.';
+                    form.reset();
+                } else {
+                    status.style.display = 'block';
+                    status.style.color = '#ef4444';
+                    status.textContent = result.error || 'Ein Fehler ist aufgetreten.';
+                }
+            })
+            .catch(function() {
+                status.style.display = 'block';
+                status.style.color = '#ef4444';
+                status.textContent = 'Verbindungsfehler. Bitte versuchen Sie es sp\u00e4ter erneut.';
+            })
+            .finally(function() {
+                btn.disabled = false;
+                btn.innerHTML = 'Nachricht senden &rarr;';
+            });
         });
     </script>
 </body>
