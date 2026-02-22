@@ -372,122 +372,10 @@
             padding: 0.5rem;
         }
 
-        /* ========== Video Welcome ========== */
-        .video-welcome {
-            position: relative;
-            overflow: hidden;
-            padding: 8rem 0 3rem;
-            text-align: center;
-        }
-
-        .video-welcome .hero-bg {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
-        }
-
-        .video-welcome .container {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .video-welcome-heading {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            font-weight: 300;
-            letter-spacing: 0.02em;
-        }
-
-        .video-welcome-heading strong {
-            color: var(--text-primary);
-            font-weight: 600;
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 320px;
-            max-width: 90vw;
-            aspect-ratio: 9/16;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow:
-                0 0 60px rgba(0, 212, 255, 0.15),
-                0 0 120px rgba(168, 85, 247, 0.08),
-                0 20px 60px rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .video-wrapper video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 72px;
-            height: 72px;
-            background: rgba(0, 212, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border: 2px solid rgba(0, 212, 255, 0.4);
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .video-play-btn:hover {
-            background: rgba(0, 212, 255, 0.35);
-            transform: translate(-50%, -50%) scale(1.08);
-            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
-        }
-
-        .video-play-btn svg {
-            width: 28px;
-            height: 28px;
-            fill: white;
-            margin-left: 3px;
-        }
-
-        .video-play-btn.hidden {
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .video-subtitle {
-            margin-top: 1.5rem;
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            opacity: 0.7;
-            font-family: 'Space Mono', monospace;
-        }
-
-        @media (max-width: 480px) {
-            .video-welcome {
-                padding: 6rem 0 2rem;
-            }
-            .video-wrapper {
-                width: 280px;
-                border-radius: 16px;
-            }
-        }
-
         /* ========== Hero ========== */
         .hero {
-            min-height: auto;
-            padding: 3rem 0 5rem;
+            min-height: 100vh;
+            padding-top: 5rem;
             display: flex;
             align-items: center;
             position: relative;
@@ -596,11 +484,69 @@
             color: var(--text-secondary);
         }
 
-        /* Hero AI Graphic */
+        /* Hero Video */
         .hero-graphic {
             display: flex;
             justify-content: center;
             align-items: center;
+        }
+
+        .video-wrapper {
+            position: relative;
+            width: 300px;
+            aspect-ratio: 9/16;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 0 60px rgba(0, 212, 255, 0.15),
+                0 0 120px rgba(168, 85, 247, 0.08),
+                0 20px 60px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .video-wrapper video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 72px;
+            height: 72px;
+            background: rgba(0, 212, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 212, 255, 0.4);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .video-play-btn:hover {
+            background: rgba(0, 212, 255, 0.35);
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .video-play-btn svg {
+            width: 28px;
+            height: 28px;
+            fill: white;
+            margin-left: 3px;
+        }
+
+        .video-play-btn.hidden {
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
 
         .ai-graphic {
@@ -1453,6 +1399,21 @@
                 order: -1;
             }
 
+            .video-wrapper {
+                width: 240px;
+                border-radius: 16px;
+            }
+
+            .video-play-btn {
+                width: 60px;
+                height: 60px;
+            }
+
+            .video-play-btn svg {
+                width: 24px;
+                height: 24px;
+            }
+
             .ai-graphic {
                 width: 280px;
                 height: 280px;
@@ -1574,26 +1535,6 @@
         </div>
     </nav>
 
-    <!-- ========== Video Welcome ========== -->
-    <section class="video-welcome">
-        <div class="hero-bg">
-            <div class="aurora aurora-1"></div>
-            <div class="aurora aurora-2"></div>
-        </div>
-        <div class="container">
-            <p class="video-welcome-heading"><strong>Alex Trupp</strong> &mdash; Gr&uuml;nder von Nordvind AI</p>
-            <div class="video-wrapper">
-                <video id="welcomeVideo" poster="video/willkommen-poster.jpg" preload="metadata" playsinline>
-                    <source src="video/willkommen.mp4" type="video/mp4">
-                </video>
-                <button class="video-play-btn" id="videoPlayBtn" aria-label="Video abspielen">
-                    <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
-                </button>
-            </div>
-            <p class="video-subtitle">&#9654; 45 Sekunden &mdash; Erfahren Sie, wie wir arbeiten</p>
-        </div>
-    </section>
-
     <!-- ========== Hero ========== -->
     <section class="hero">
         <div class="hero-bg">
@@ -1625,19 +1566,13 @@
                 </div>
             </div>
             <div class="hero-graphic">
-                <div class="ai-graphic">
-                    <div class="ai-ring ai-ring-1"></div>
-                    <div class="ai-ring ai-ring-2"></div>
-                    <div class="ai-ring ai-ring-3"></div>
-                    <div class="ai-node"></div>
-                    <div class="ai-node"></div>
-                    <div class="ai-node"></div>
-                    <div class="ai-node"></div>
-                    <div class="ai-node"></div>
-                    <div class="ai-node"></div>
-                    <div class="ai-center">
-                        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                    </div>
+                <div class="video-wrapper">
+                    <video id="welcomeVideo" poster="video/willkommen-poster.jpg" preload="metadata" playsinline>
+                        <source src="video/willkommen.mp4" type="video/mp4">
+                    </video>
+                    <button class="video-play-btn" id="videoPlayBtn" aria-label="Video abspielen">
+                        <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+                    </button>
                 </div>
             </div>
         </div>
