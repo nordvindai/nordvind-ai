@@ -599,18 +599,17 @@
             flex-direction: column;
             justify-content: center;
             position: relative;
-            overflow: hidden;
-            padding: 8rem 0 4rem;
+            padding: 10rem 0 4rem;
         }
 
         .hero .container {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 3rem 3rem;
+            align-items: start;
             position: relative;
             z-index: 1;
-            max-width: 60%;
-            margin-left: max(2rem, calc((100vw - 1200px) / 2));
         }
 
         .hero-badge {
@@ -669,32 +668,49 @@
         }
 
         .hero-graphic {
-            position: absolute !important;
-            right: 0;
-            top: 0;
-            width: 40%;
-            height: 100%;
-            clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
-            z-index: 0;
+            position: relative;
+            width: 100%;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .video-wrapper {
-            width: 100% !important;
-            height: 100% !important;
-            border-radius: 0 !important;
-            border: none !important;
-            box-shadow: none !important;
-            aspect-ratio: auto !important;
             position: relative;
             overflow: hidden;
+            border-radius: 16px;
+            border: 2px solid var(--accent);
+            box-shadow: 0 0 60px rgba(0, 229, 160, 0.2), 0 25px 80px rgba(0, 0, 0, 0.6);
+            aspect-ratio: 9 / 16;
+            max-height: 85vh;
+            margin: 0 auto;
+            background: var(--card-bg);
+            width: 100%;
         }
 
         .video-wrapper::before {
-            content: none;
+            content: 'PLAY';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            letter-spacing: 0.3em;
+            color: var(--accent);
+            opacity: 0.6;
+            z-index: 3;
+            pointer-events: none;
         }
 
         .video-wrapper::after {
-            content: none;
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 229, 160, 0.1);
+            pointer-events: none;
+            z-index: 2;
         }
 
         .video-wrapper video {
@@ -702,39 +718,39 @@
             height: 100%;
             object-fit: cover;
             display: block;
+            border-radius: 10px;
         }
 
         .video-play-btn {
             position: absolute;
-            bottom: 3rem;
-            top: auto;
-            left: 3rem;
-            transform: none;
-            width: 72px;
-            height: 72px;
-            background: rgba(0, 229, 160, 0.15);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: rgba(0, 229, 160, 0.12);
             backdrop-filter: blur(20px);
-            border: 1px solid var(--accent);
+            border: 2px solid var(--accent);
             border-radius: 50%;
             cursor: none;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition-smooth);
-            z-index: 2;
+            z-index: 4;
         }
 
         .video-play-btn:hover {
             background: var(--accent);
-            transform: scale(1.1);
-            box-shadow: 0 8px 30px rgba(0, 229, 160, 0.3);
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 0 50px rgba(0, 229, 160, 0.4);
         }
 
         .video-play-btn svg {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             fill: var(--accent);
-            margin-left: 3px;
+            margin-left: 4px;
         }
 
         .video-play-btn:hover svg {
@@ -747,11 +763,32 @@
             transition: opacity 0.3s ease;
         }
 
-        /* Hero Stats */
+        /* Video label tag */
+        .video-tag {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .video-tag span {
+            color: var(--accent);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            padding: 3rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--bg);
+        }
+
         .hero-stats {
             display: flex;
             gap: 4rem;
-            margin-top: 1rem;
+            justify-content: flex-start;
         }
 
         .hero-stat {
@@ -1494,25 +1531,18 @@
         /* --- Responsive --- */
         @media (max-width: 1100px) {
             .hero .container {
-                max-width: 100%;
-                margin-left: auto;
+                grid-template-columns: 1fr;
                 text-align: left;
-                padding: 0 2rem;
+                gap: 3rem;
             }
 
             .hero-graphic {
-                position: absolute !important;
-                width: 100%;
-                clip-path: none;
-                opacity: 0.2;
+                max-width: 400px;
+                margin: 0 auto;
             }
 
-            .hero-graphic::after {
-                content: '';
-                position: absolute;
-                inset: 0;
-                background: linear-gradient(to right, var(--bg) 30%, transparent 70%);
-                z-index: 1;
+            .video-wrapper {
+                max-height: 60vh;
             }
 
             .hero-stats {
@@ -1570,12 +1600,29 @@
                 padding: 0 1.2rem;
             }
 
+            .hero {
+                padding: 8rem 0 3rem;
+            }
+
             .hero h1 {
                 font-size: clamp(2.2rem, 10vw, 3.5rem);
             }
 
             .hero h1 .highlight {
                 font-size: clamp(2.5rem, 11vw, 4rem);
+            }
+
+            .hero-graphic {
+                max-width: 300px;
+            }
+
+            .video-wrapper {
+                max-height: 50vh;
+            }
+
+            .video-play-btn {
+                width: 64px;
+                height: 64px;
             }
 
             section {
@@ -1676,33 +1723,40 @@
                     <a href="#kontakt" class="btn btn-primary">Kostenlose Erstberatung &rarr;</a>
                     <a href="#leistungen" class="btn btn-secondary">Unsere Leistungen</a>
                 </div>
-                <div class="hero-stats">
-                    <div class="hero-stat">
-                        <div class="hero-stat-number mono">12+</div>
-                        <div class="hero-stat-label">Jahre Erfahrung</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number mono">3x</div>
-                        <div class="hero-stat-label">Unternehmen gegr.</div>
-                    </div>
-                    <div class="hero-stat">
-                        <div class="hero-stat-number mono">100+</div>
-                        <div class="hero-stat-label">Projekte</div>
-                    </div>
-                </div>
             </div>
-        </div>
-        <div class="hero-graphic">
-            <div class="video-wrapper">
-                <video id="welcomeVideo" poster="video/willkommen-poster.jpg?v=2" preload="metadata" playsinline>
-                    <source src="video/willkommen.mp4" type="video/mp4">
-                </video>
-                <button class="video-play-btn" id="videoPlayBtn" aria-label="Video abspielen">
-                    <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
-                </button>
+            <div class="hero-graphic">
+                <div class="video-wrapper">
+                    <video id="welcomeVideo" poster="video/willkommen-poster.jpg?v=2" preload="metadata" playsinline>
+                        <source src="video/willkommen.mp4" type="video/mp4">
+                    </video>
+                    <button class="video-play-btn" id="videoPlayBtn" aria-label="Video abspielen">
+                        <svg viewBox="0 0 24 24"><polygon points="8,5 19,12 8,19"/></svg>
+                    </button>
+                </div>
+                <div class="video-tag"><span>&#9654;</span> Willkommensvideo &mdash; Alex Trupp, Gr&uuml;nder</div>
             </div>
         </div>
     </section>
+
+    <!-- ========== Stats Bar ========== -->
+    <div class="stats-bar">
+        <div class="container">
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number mono">12+</div>
+                    <div class="hero-stat-label">Jahre Erfahrung</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number mono">3x</div>
+                    <div class="hero-stat-label">Unternehmen gegr.</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number mono">100+</div>
+                    <div class="hero-stat-label">Projekte</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- ========== Marquee Ticker ========== -->
     <div class="marquee">
