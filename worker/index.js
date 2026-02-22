@@ -1,14 +1,18 @@
 export default {
   async fetch(request, env) {
+    const origin = request.headers.get("Origin") || "";
+    const allowedOrigins = [env.ALLOWED_ORIGIN, "https://www.nordvind-ai.de"];
+    const corsOrigin = allowedOrigins.includes(origin) ? origin : env.ALLOWED_ORIGIN;
+
     // Handle CORS preflight
     if (request.method === "OPTIONS") {
       return new Response(null, {
-        headers: corsHeaders(env.ALLOWED_ORIGIN),
+        headers: corsHeaders(corsOrigin),
       });
     }
 
     if (request.method !== "POST") {
-      return jsonResponse({ error: "Method not allowed" }, 405, env.ALLOWED_ORIGIN);
+      return jsonResponse({ error: "Method not allowed" }, 405, corsOrigin);
     }
 
     try {
@@ -16,75 +20,57 @@ export default {
 
       // Validate required fields
       if (!data.name || !data.email || !data.name.trim() || !data.email.trim()) {
-        return jsonResponse({ error: "Name und E-Mail sind Pflichtfelder." }, 400, env.ALLOWED_ORIGIN);
+        return jsonResponse({ error: "Name und E-Mail sind Pflichtfelder." }, 400, corsOrigin);
       }
 
       // Basic email validation
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
-        return jsonResponse({ error: "Bitte geben Sie eine gültige E-Mail-Adresse ein." }, 400, env.ALLOWED_ORIGIN);
+        return jsonResponse({ error: "Bitte geben Sie eine gültige E-Mail-Adresse ein." }, 400, corsOrigin);
       }
 
       // Simple honeypot check
       if (data.website) {
-        return jsonResponse({ success: true }, 200, env.ALLOWED_ORIGIN);
+        return jsonResponse({ success: true }, 200, corsOrigin);
       }
-
-      // Rate limiting via CF headers
-      const ip = request.headers.get("CF-Connecting-IP") || "unknown";
 
       // Build email content
       const subject = `Neue Kontaktanfrage: ${data.name}${data.company ? ` (${data.company})` : ""}`;
       const body = buildEmailBody(data);
 
-      // Send via MailChannels (free for Cloudflare Workers)
-      const emailResponse = await fetch("https://api.mailchannels.net/tx/v1/send", {
+      // Send via Resend API
+      const emailResponse = await fetch("https://api.resend.com/emails", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        },
         body: JSON.stringify({
-          personalizations: [
-            {
-              to: [{ email: env.TO_EMAIL, name: "Nordvind AI" }],
-            },
-          ],
-          from: {
-            email: env.FROM_EMAIL,
-            name: `Nordvind AI Kontaktformular`,
-          },
-          reply_to: {
-            email: data.email,
-            name: data.name,
-          },
+          from: `Nordvind AI Kontaktformular <${env.FROM_EMAIL}>`,
+          to: [env.TO_EMAIL],
+          reply_to: data.email,
           subject: subject,
-          content: [
-            {
-              type: "text/plain",
-              value: body.text,
-            },
-            {
-              type: "text/html",
-              value: body.html,
-            },
-          ],
+          text: body.text,
+          html: body.html,
         }),
       });
 
-      if (emailResponse.status === 202 || emailResponse.status === 200) {
-        return jsonResponse({ success: true }, 200, env.ALLOWED_ORIGIN);
+      if (emailResponse.ok) {
+        return jsonResponse({ success: true }, 200, corsOrigin);
       }
 
       const errorText = await emailResponse.text();
-      console.error("MailChannels error:", emailResponse.status, errorText);
+      console.error("Resend error:", emailResponse.status, errorText);
       return jsonResponse(
         { error: "E-Mail konnte nicht gesendet werden. Bitte versuchen Sie es später erneut." },
         500,
-        env.ALLOWED_ORIGIN
+        corsOrigin
       );
     } catch (err) {
       console.error("Worker error:", err);
       return jsonResponse(
         { error: "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später erneut." },
         500,
-        env.ALLOWED_ORIGIN
+        corsOrigin
       );
     }
   },
