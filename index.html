@@ -499,8 +499,8 @@
 
         .ai-ring {
             position: absolute;
-            border: 1px solid rgba(0, 212, 255, 0.15);
             border-radius: 50%;
+            border: 1px solid rgba(0, 212, 255, 0.12);
         }
 
         .ai-ring-1 {
@@ -509,6 +509,8 @@
             top: 0;
             left: 0;
             animation: ringRotate 30s linear infinite;
+            border-color: rgba(0, 212, 255, 0.25);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.08), inset 0 0 30px rgba(0, 212, 255, 0.05);
         }
 
         .ai-ring-2 {
@@ -516,8 +518,9 @@
             height: 75%;
             top: 12.5%;
             left: 12.5%;
-            border-color: rgba(168, 85, 247, 0.15);
+            border-color: rgba(168, 85, 247, 0.25);
             animation: ringRotate 20s linear infinite reverse;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.08), inset 0 0 25px rgba(168, 85, 247, 0.05);
         }
 
         .ai-ring-3 {
@@ -525,8 +528,9 @@
             height: 50%;
             top: 25%;
             left: 25%;
-            border-color: rgba(0, 255, 136, 0.15);
+            border-color: rgba(0, 255, 136, 0.25);
             animation: ringRotate 25s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.08), inset 0 0 20px rgba(0, 255, 136, 0.05);
         }
 
         @keyframes ringRotate {
@@ -534,35 +538,75 @@
             to { transform: rotate(360deg); }
         }
 
+        /* Nodes orbit on the rings */
         .ai-node {
             position: absolute;
             width: 8px;
             height: 8px;
             background: var(--aurora-cyan);
             border-radius: 50%;
-            animation: nodeGlow 3s ease-in-out infinite;
+            top: 50%;
+            left: 50%;
         }
 
-        .ai-node:nth-child(4) { top: 0; left: 50%; transform: translate(-50%, -50%); }
-        .ai-node:nth-child(5) { top: 50%; right: 0; transform: translate(50%, -50%); animation-delay: -1s; background: var(--aurora-purple); }
-        .ai-node:nth-child(6) { bottom: 0; left: 50%; transform: translate(-50%, 50%); animation-delay: -2s; background: var(--aurora-green); }
-        .ai-node:nth-child(7) { top: 50%; left: 0; transform: translate(-50%, -50%); animation-delay: -0.5s; }
-        .ai-node:nth-child(8) { top: 15%; right: 15%; background: var(--aurora-purple); animation-delay: -1.5s; }
-        .ai-node:nth-child(9) { bottom: 15%; left: 15%; background: var(--aurora-green); animation-delay: -2.5s; }
+        /* Outer ring nodes (ring-1, r=200px) */
+        .ai-node:nth-child(4) {
+            animation: orbitOuter 30s linear infinite, nodeGlow 3s ease-in-out infinite;
+        }
+        .ai-node:nth-child(5) {
+            background: var(--aurora-purple);
+            animation: orbitOuter 30s linear infinite, nodeGlow 3s ease-in-out infinite;
+            animation-delay: -10s, -1s;
+        }
+        /* Middle ring nodes (ring-2, r=150px) */
+        .ai-node:nth-child(6) {
+            background: var(--aurora-green);
+            animation: orbitMiddle 20s linear infinite reverse, nodeGlow 3s ease-in-out infinite;
+            animation-delay: 0s, -2s;
+        }
+        .ai-node:nth-child(7) {
+            animation: orbitMiddle 20s linear infinite reverse, nodeGlow 3s ease-in-out infinite;
+            animation-delay: -10s, -0.5s;
+        }
+        /* Inner ring nodes (ring-3, r=100px) */
+        .ai-node:nth-child(8) {
+            background: var(--aurora-purple);
+            animation: orbitInner 25s linear infinite, nodeGlow 3s ease-in-out infinite;
+            animation-delay: 0s, -1.5s;
+        }
+        .ai-node:nth-child(9) {
+            background: var(--aurora-green);
+            animation: orbitInner 25s linear infinite, nodeGlow 3s ease-in-out infinite;
+            animation-delay: -12.5s, -2.5s;
+        }
+
+        @keyframes orbitOuter {
+            from { transform: translate(-50%, -50%) rotate(0deg) translateX(200px) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg) translateX(200px) rotate(-360deg); }
+        }
+        @keyframes orbitMiddle {
+            from { transform: translate(-50%, -50%) rotate(0deg) translateX(150px) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg) translateX(150px) rotate(-360deg); }
+        }
+        @keyframes orbitInner {
+            from { transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg); }
+        }
 
         .ai-center {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 60px;
-            height: 60px;
+            width: 64px;
+            height: 64px;
             background: linear-gradient(135deg, var(--aurora-cyan), var(--aurora-purple));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 212, 255, 0.1);
+            animation: centerPulse 4s ease-in-out infinite;
         }
 
         .ai-center svg {
@@ -571,9 +615,37 @@
             fill: white;
         }
 
+        @keyframes centerPulse {
+            0%, 100% { box-shadow: 0 0 40px rgba(0, 212, 255, 0.3), 0 0 80px rgba(0, 212, 255, 0.1); }
+            50% { box-shadow: 0 0 60px rgba(0, 212, 255, 0.5), 0 0 120px rgba(168, 85, 247, 0.2); }
+        }
+
         @keyframes nodeGlow {
-            0%, 100% { opacity: 0.5; box-shadow: 0 0 5px currentColor; }
-            50% { opacity: 1; box-shadow: 0 0 15px currentColor; }
+            0%, 100% { opacity: 0.6; box-shadow: 0 0 5px currentColor; }
+            50% { opacity: 1; box-shadow: 0 0 20px currentColor, 0 0 40px currentColor; }
+        }
+
+        /* Connection lines from center */
+        .ai-graphic::before,
+        .ai-graphic::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 1px;
+            height: 200px;
+            background: linear-gradient(to bottom, rgba(0, 212, 255, 0.3), transparent);
+            transform-origin: top center;
+            animation: connectionSpin 15s linear infinite;
+        }
+        .ai-graphic::after {
+            animation-delay: -5s;
+            background: linear-gradient(to bottom, rgba(168, 85, 247, 0.2), transparent);
+        }
+
+        @keyframes connectionSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
         }
 
         /* ========== Warum KI Section ========== */
@@ -663,6 +735,18 @@
         .jcurve-container p {
             color: var(--text-secondary);
             margin-bottom: 2rem;
+        }
+
+        .jcurve-explainer {
+            margin-top: 2rem;
+            margin-bottom: 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            text-align: left;
         }
 
         .jcurve-svg {
@@ -1524,6 +1608,7 @@
                         <text x="330" y="15" fill="var(--aurora-cyan)" font-size="10" text-anchor="middle" font-family="Space Mono, monospace" opacity="0.7">Wettbewerbsvorteil</text>
                     </svg>
                 </div>
+                <p class="jcurve-explainer">Die J-Kurve zeigt den typischen Verlauf einer KI-Einf&uuml;hrung: Zu Beginn sinkt die Produktivit&auml;t kurzfristig &ndash; neue Tools, neue Prozesse, Lernkurve. Doch nach dieser Anpassungsphase steigt die Leistung exponentiell &uuml;ber das alte Niveau hinaus. Die meisten Unternehmen befinden sich gerade im Tal &ndash; wer jetzt durchh&auml;lt und strategisch investiert, baut einen nachhaltigen Wettbewerbsvorteil auf.</p>
             </div>
 
             <div class="cta-box">
