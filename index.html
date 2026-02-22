@@ -1725,7 +1725,7 @@
         }
     </style>
     <script>
-        (function(){var s=localStorage.getItem('nordvind-theme');var d=window.matchMedia('(prefers-color-scheme:dark)').matches;var t=s||(d?'dark':'light');if(t==='light')document.documentElement.setAttribute('data-theme','light');})();
+        (function(){var s=localStorage.getItem('nordvind-theme');if(s==='light')document.documentElement.setAttribute('data-theme','light');})();
     </script>
 </head>
 <body>
@@ -2360,12 +2360,6 @@
                 }
                 localStorage.setItem('nordvind-theme', theme);
             }
-
-            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(e) {
-                if (!localStorage.getItem('nordvind-theme')) {
-                    setTheme(e.matches ? 'dark' : 'light');
-                }
-            });
 
             toggle.addEventListener('click', function() {
                 setTheme(getTheme() === 'light' ? 'dark' : 'light');
