@@ -65,7 +65,12 @@
         "founder": {
             "@type": "Person",
             "name": "Alex Trupp",
-            "jobTitle": "Wirtschaftsinformatiker | Senior Business-Analyst | E-Commerce Experte"
+            "jobTitle": "Gr&uuml;nder | Senior Business-Analyst | E-Commerce Experte"
+        },
+        "employee": {
+            "@type": "Person",
+            "name": "Anton Klein",
+            "jobTitle": "CTO | Tech Lead | KI-Architekt"
         },
         "areaServed": {
             "@type": "Country",
@@ -1084,15 +1089,25 @@
         }
 
         /* --- Ueber Uns Section --- */
-        .founder-section {
+        .team-grid {
             display: grid;
-            grid-template-columns: 300px 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 4rem;
             margin-bottom: 5rem;
         }
 
+        .founder-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
         .founder-photo-wrap {
             position: relative;
+            width: 100%;
+            max-width: 280px;
+            margin-bottom: 2rem;
         }
 
         .founder-photo {
@@ -1100,6 +1115,7 @@
             border-radius: 20px;
             aspect-ratio: 3/4;
             object-fit: cover;
+            object-position: center top;
             border: 1px solid var(--border);
         }
 
@@ -1117,6 +1133,10 @@
             border-radius: 50px;
             white-space: nowrap;
             letter-spacing: 0.05em;
+        }
+
+        .founder-info {
+            width: 100%;
         }
 
         .founder-info h3 {
@@ -1731,14 +1751,13 @@
                 gap: 2rem;
             }
 
-            .founder-section {
+            .team-grid {
                 grid-template-columns: 1fr;
-                text-align: center;
+                gap: 4rem;
             }
 
             .founder-photo-wrap {
-                max-width: 250px;
-                margin: 0 auto;
+                max-width: 220px;
             }
 
             .expertise-grid {
@@ -2134,38 +2153,70 @@
             <h2 class="section-title">Wer steckt hinter Nordvind AI?</h2>
             <p class="section-subtitle">Praxiserfahrung trifft auf KI-Expertise.</p>
 
-            <div class="founder-section">
-                <div class="founder-photo-wrap">
-                    <img src="alex-trupp.jpg" alt="Alex Trupp - Gr&uuml;nder von Nordvind AI" class="founder-photo" loading="lazy">
-                    <div class="founder-badge">12+ Jahre Erfahrung</div>
+            <div class="team-grid">
+                <div class="founder-section">
+                    <div class="founder-photo-wrap">
+                        <img src="alex-trupp.jpg" alt="Alex Trupp - Gr&uuml;nder von Nordvind AI" class="founder-photo" loading="lazy">
+                        <div class="founder-badge">Gr&uuml;nder</div>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Alex Trupp</h3>
+                        <div class="founder-title">Wirtschaftsinformatiker | Senior Business-Analyst | E-Commerce Experte</div>
+                        <p class="founder-bio">Mit &uuml;ber 12 Jahren Erfahrung in E-Commerce, Business-Analyse und Softwareentwicklung verbinde ich technisches Know-how mit unternehmerischem Denken. Drei Unternehmen aufgebaut, &uuml;ber 100 Projekte umgesetzt.</p>
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                E-Commerce &amp; Handel
+                            </div>
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                Business-Analyse
+                            </div>
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                Software-Entwicklung
+                            </div>
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                KI-Integration
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="founder-info">
-                    <h3>Alex Trupp</h3>
-                    <div class="founder-title">Wirtschaftsinformatiker | Senior Business-Analyst | E-Commerce Experte</div>
-                    <p class="founder-bio">Mit &uuml;ber 12 Jahren Erfahrung in E-Commerce, Business-Analyse und Softwareentwicklung verbinde ich technisches Know-how mit unternehmerischem Denken. Ich habe drei Unternehmen aufgebaut und &uuml;ber 100 Projekte erfolgreich umgesetzt &ndash; von der Automobilbranche bis zum Startup.</p>
-                    <div class="expertise-grid">
-                        <div class="expertise-item">
-                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                            E-Commerce &amp; Handel
-                        </div>
-                        <div class="expertise-item">
-                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                            Business-Analyse
-                        </div>
-                        <div class="expertise-item">
-                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                            Software-Entwicklung
-                        </div>
-                        <div class="expertise-item">
-                            <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-                            KI-Integration
+
+                <div class="founder-section">
+                    <div class="founder-photo-wrap">
+                        <img src="anton-klein.jpg" alt="Anton Klein - CTO von Nordvind AI" class="founder-photo" loading="lazy">
+                        <div class="founder-badge">CTO</div>
+                    </div>
+                    <div class="founder-info">
+                        <h3>Anton Klein</h3>
+                        <div class="founder-title">CTO | Tech Lead | KI-Architekt</div>
+                        <p class="founder-bio">Als technischer Kopf von Nordvind AI verantwortet Anton die Architektur und Umsetzung unserer KI-L&ouml;sungen. Von der Infrastruktur bis zum fertigen System &ndash; er sorgt daf&uuml;r, dass Technologie echten Mehrwert liefert.</p>
+                        <div class="expertise-grid">
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                KI-Architektur
+                            </div>
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                Systemintegration
+                            </div>
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                Cloud &amp; DevOps
+                            </div>
+                            <div class="expertise-item">
+                                <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                                Automatisierung
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- Timeline -->
-            <h3 class="text-center" style="margin-bottom: 2rem;">Mein Weg</h3>
+            <h3 class="text-center" style="margin-bottom: 2rem;">Unser Weg</h3>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-year mono">2013</div>
@@ -2622,7 +2673,7 @@
             });
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
-        document.querySelectorAll('.paradigm-card, .service-card, .branche-card, .feature-card, .section-badge, .section-title, .section-subtitle, .founder-section, .jcurve-container, .pricing-highlight, .faq-item, .contact-form, .timeline-item, .cta-box, .guide-card, .guides-cta-card').forEach(function(el) {
+        document.querySelectorAll('.paradigm-card, .service-card, .branche-card, .feature-card, .section-badge, .section-title, .section-subtitle, .team-grid, .jcurve-container, .pricing-highlight, .faq-item, .contact-form, .timeline-item, .cta-box, .guide-card, .guides-cta-card').forEach(function(el) {
             el.classList.add('reveal');
             observer.observe(el);
         });
